@@ -182,7 +182,7 @@ ids.forEach(function(id) {
     })
     procs.push(proc);
 })
-var nginx = childproc.spawn(basePath + 'nginx/sbin/nginx', ['-c', basePath + 'imgcluster/nginx.conf', '-p', basePath + '/nginx']);
+var nginx = childproc.spawn(basePath + 'nginx/sbin/nginx', ['-c', basePath + 'imgcluster/nginx.conf', '-p', basePath + 'nginx'], { cdw: basePath + "nginx"});
 nginx.stdout.on('data', function(data) {
     console.log("nginx : " + data);
 });
